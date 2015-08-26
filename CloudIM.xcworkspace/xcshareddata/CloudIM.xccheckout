@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>F753A1DF-F672-4189-8EBB-57AFE5677B7F</string>
+	<key>IDESourceControlProjectName</key>
+	<string>CloudIM</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>E408E1387C9CE2F2C5320B62787D8C24B489E379</key>
+		<string>https://github.com/happyer-lwl/CloudIM.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>CloudIM.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>E408E1387C9CE2F2C5320B62787D8C24B489E379</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/happyer-lwl/CloudIM.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>E408E1387C9CE2F2C5320B62787D8C24B489E379</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>E408E1387C9CE2F2C5320B62787D8C24B489E379</string>
+			<key>IDESourceControlWCCName</key>
+			<string>CloudIM</string>
+		</dict>
+	</array>
+</dict>
+</plist>

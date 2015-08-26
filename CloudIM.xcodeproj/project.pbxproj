@@ -16,6 +16,7 @@
 		7E1C6D3F1B85C9DB00940D0C /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C6D3E1B85C9DB00940D0C /* ConversationViewController.swift */; };
 		7E1C6D411B860BC400940D0C /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */; };
 		7E6C23461B8B47D3004EA8B4 /* RegTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C23451B8B47D3004EA8B4 /* RegTableViewController.swift */; };
+		7E99AD781B8C5E920017E89E /* UIView+ViewRecursion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E99AD771B8C5E920017E89E /* UIView+ViewRecursion.m */; };
 		7EA705A11B8AF6B800AD20D1 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA705A01B8AF6B800AD20D1 /* RoundImageView.swift */; };
 		7ECBE9171B876182004F8607 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECBE9161B876182004F8607 /* LoginViewController.swift */; };
 		E6975A4BEAEF8A3B46BFEF17 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AFBA79483682FD35CEF02F /* libPods.a */; };
@@ -47,6 +48,8 @@
 		7E1C6D3E1B85C9DB00940D0C /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
 		7E6C23451B8B47D3004EA8B4 /* RegTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegTableViewController.swift; sourceTree = "<group>"; };
+		7E99AD761B8C5E880017E89E /* UIView+ViewRecursion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewRecursion.h"; sourceTree = "<group>"; };
+		7E99AD771B8C5E920017E89E /* UIView+ViewRecursion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewRecursion.m"; sourceTree = "<group>"; };
 		7EA705A01B8AF6B800AD20D1 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
 		7ECBE9161B876182004F8607 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6AFBA79483682FD35CEF02F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -95,6 +98,7 @@
 		7E1C6D161B849BFE00940D0C /* CloudIM */ = {
 			isa = PBXGroup;
 			children = (
+				7E99AD751B8C5E740017E89E /* 3rd */,
 				7E1C6D191B849BFE00940D0C /* AppDelegate.swift */,
 				7E1C6D1B1B849BFE00940D0C /* ViewController.swift */,
 				7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */,
@@ -134,6 +138,15 @@
 				7E1C6D2E1B849BFE00940D0C /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7E99AD751B8C5E740017E89E /* 3rd */ = {
+			isa = PBXGroup;
+			children = (
+				7E99AD761B8C5E880017E89E /* UIView+ViewRecursion.h */,
+				7E99AD771B8C5E920017E89E /* UIView+ViewRecursion.m */,
+			);
+			name = 3rd;
 			sourceTree = "<group>";
 		};
 		D4FF161473329A2A6FC6DC63 /* Frameworks */ = {
@@ -290,6 +303,7 @@
 			files = (
 				7E1C6D1C1B849BFE00940D0C /* ViewController.swift in Sources */,
 				7E1C6D411B860BC400940D0C /* ConversationListViewController.swift in Sources */,
+				7E99AD781B8C5E920017E89E /* UIView+ViewRecursion.m in Sources */,
 				7E1C6D1A1B849BFE00940D0C /* AppDelegate.swift in Sources */,
 				7ECBE9171B876182004F8607 /* LoginViewController.swift in Sources */,
 				7E1C6D3F1B85C9DB00940D0C /* ConversationViewController.swift in Sources */,

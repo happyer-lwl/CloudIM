@@ -148,7 +148,7 @@
         <scene sceneID="APp-Bc-jV8">
             <objects>
                 <tableViewController id="2mT-xa-lOU" customClass="RegTableViewController" customModule="CloudIM" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rMC-rS-FhI">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="rMC-rS-FhI">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -268,6 +268,20 @@
                         <barButtonItem key="backBarButtonItem" title="返回" id="1ow-ar-S56"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nvd-m0-IMg"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="address" destination="7au-2d-f2C" id="4EB-6z-Lyn"/>
+                        <outlet property="mail" destination="tMd-CP-mZK" id="dOi-4a-2Bd"/>
+                        <outlet property="pass" destination="M27-6O-eb9" id="uLs-Cs-w1P"/>
+                        <outlet property="pass_answer" destination="A7M-Op-zze" id="ho0-eK-j4w"/>
+                        <outlet property="pass_question" destination="fEh-lm-Wf3" id="OJ6-oM-PHN"/>
+                        <outlet property="user" destination="b9d-Uv-suy" id="1w3-qC-SNn"/>
+                        <outletCollection property="loginTextNotFields" destination="7au-2d-f2C" collectionClass="NSMutableArray" id="gCU-Zl-mdf"/>
+                        <outletCollection property="loginTextNotFields" destination="fEh-lm-Wf3" collectionClass="NSMutableArray" id="wv3-Or-xi4"/>
+                        <outletCollection property="loginTextNotFields" destination="A7M-Op-zze" collectionClass="NSMutableArray" id="9He-5F-m6F"/>
+                        <outletCollection property="loginTextMustFields" destination="b9d-Uv-suy" collectionClass="NSMutableArray" id="2Iv-AL-WQI"/>
+                        <outletCollection property="loginTextMustFields" destination="M27-6O-eb9" collectionClass="NSMutableArray" id="CBl-ho-Cmj"/>
+                        <outletCollection property="loginTextMustFields" destination="tMd-CP-mZK" collectionClass="NSMutableArray" id="58H-6F-ZI0"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="y7y-S1-1CG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

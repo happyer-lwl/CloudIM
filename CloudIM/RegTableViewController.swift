@@ -9,7 +9,46 @@
 import UIKit
 
 class RegTableViewController: UITableViewController {
-
+    
+    @IBOutlet var loginTextMustFields: [UITextField]!
+    @IBOutlet var loginTextNotFields: [UITextField]!
+    
+    @IBOutlet weak var user: UITextField!
+    @IBOutlet weak var pass: UITextField!
+    @IBOutlet weak var mail: UITextField!
+    
+    @IBOutlet weak var address: UITextField!
+    @IBOutlet weak var pass_question: UITextField!
+    @IBOutlet weak var pass_answer: UITextField!
+    
+    func checkRequeriedField() {
+        
+        //一次性定位所有的子控件，第三方UIView+ViewRecursion
+ /*       self.view.runBlockOnAllSubviews { (subview) -> Void in
+            if let textfield = subview as? UITextField{
+                if textfield.text.isEmpty {
+                    println("当前没有内容！")
+                }
+            }
+        }
+*/
+        //storyboard 建立数组，遍历
+        for textField in loginTextMustFields {
+            if textField.text!.isEmpty {
+                println("有空行！")
+            }
+        }
+        
+        //通过正则表达式对内容进行校验
+        let regex = "[A-Z0-9a-z._]+@[A-Za-z0-9._]+\\.[A-Za-z]{2,4}"
+        let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
+        if predicate.evaluateWithObject(mail.text){
+            println("邮箱格式正确!")
+        }else {
+            println("邮箱格式不正确!")
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,14 +62,39 @@ class RegTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationItem.title = "新用户注册"
+        
+        //textfield 左右子视图
+//        let rightLabel = UILabel(frame: CGRectMake(20, 0, 30, 30))
+//        rightLabel.text = "x"
+//        user.rightView = rightLabel
+//        user.rightViewMode = UITextFieldViewMode.WhileEditing
+        
+        //通过第三方库校验
+        let vUser = AJWValidator(type: .String)
+        vUser.addValidationToEnsureMinimumLength(3, invalidMessage: "最少为3个字符")
+        vUser.addValidationToEnsureMaximumLength(15, invalidMessage: "最多只能有15个字符")
+        self.user.ajw_attachValidator(vUser)
+        
+        vUser.validatorStateChangedHandler = { (newState: AJWValidatorState) -> Void in
+            switch newState {
+            case .ValidationStateValid:
+                println("有效!")
+            default:
+                println("无效!")
+            }
+        }
     }
 
     func doneButtonTap(){
-        let alert = UIAlertController(title: "提示", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
         
-        alert.addAction(action)
-        self.presentViewController(alert, animated: true, completion: nil)
+        //checkRequeriedField()
+        //换作注册新用户
+        
+//        let alert = UIAlertController(title: "提示", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+//        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        
+//        alert.addAction(action)
+//        self.presentViewController(alert, animated: true, completion: nil)
     }
     
     override func didReceiveMemoryWarning() {
