@@ -14,7 +14,7 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "7219255FE2ED9C1DCD9B799B"
+               BlueprintIdentifier = "3E3538AFE672D0626FDB1D06"
                BuildableName = "libPods-JSAnimatedImagesView.a"
                BlueprintName = "Pods-JSAnimatedImagesView"
                ReferencedContainer = "container:Pods.xcodeproj">

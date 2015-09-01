@@ -16,6 +16,7 @@
 		7E1C6D3F1B85C9DB00940D0C /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C6D3E1B85C9DB00940D0C /* ConversationViewController.swift */; };
 		7E1C6D411B860BC400940D0C /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */; };
 		7E6C23461B8B47D3004EA8B4 /* RegTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C23451B8B47D3004EA8B4 /* RegTableViewController.swift */; };
+		7E84E74A1B93F02E00D2B164 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84E7491B93F02E00D2B164 /* common.swift */; };
 		7E99AD781B8C5E920017E89E /* UIView+ViewRecursion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E99AD771B8C5E920017E89E /* UIView+ViewRecursion.m */; };
 		7EA705A11B8AF6B800AD20D1 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA705A01B8AF6B800AD20D1 /* RoundImageView.swift */; };
 		7ECBE9171B876182004F8607 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECBE9161B876182004F8607 /* LoginViewController.swift */; };
@@ -48,6 +49,7 @@
 		7E1C6D3E1B85C9DB00940D0C /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
 		7E6C23451B8B47D3004EA8B4 /* RegTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegTableViewController.swift; sourceTree = "<group>"; };
+		7E84E7491B93F02E00D2B164 /* common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		7E99AD761B8C5E880017E89E /* UIView+ViewRecursion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewRecursion.h"; sourceTree = "<group>"; };
 		7E99AD771B8C5E920017E89E /* UIView+ViewRecursion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewRecursion.m"; sourceTree = "<group>"; };
 		7EA705A01B8AF6B800AD20D1 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			isa = PBXGroup;
 			children = (
 				7E99AD751B8C5E740017E89E /* 3rd */,
+				7E84E7491B93F02E00D2B164 /* common.swift */,
 				7E1C6D191B849BFE00940D0C /* AppDelegate.swift */,
 				7E1C6D1B1B849BFE00940D0C /* ViewController.swift */,
 				7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */,
@@ -309,6 +312,7 @@
 				7E1C6D3F1B85C9DB00940D0C /* ConversationViewController.swift in Sources */,
 				7EA705A11B8AF6B800AD20D1 /* RoundImageView.swift in Sources */,
 				7E6C23461B8B47D3004EA8B4 /* RegTableViewController.swift in Sources */,
+				7E84E74A1B93F02E00D2B164 /* common.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

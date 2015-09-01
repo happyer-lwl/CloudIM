@@ -9,7 +9,6 @@
 import UIKit
 
 class RegTableViewController: UITableViewController {
-    
     @IBOutlet var loginTextMustFields: [UITextField]!
     @IBOutlet var loginTextNotFields: [UITextField]!
     
@@ -86,15 +85,54 @@ class RegTableViewController: UITableViewController {
     }
 
     func doneButtonTap(){
+        let manager = AFHTTPRequestOperationManager()
+        let url = "http://123.57.80.107:100"
+        
+        let params = ["api_uid":"Login","type":"regUser","name":user.text, "pwd":pass.text, "mail":mail.text, "question" : pass_question.text, "answer":pass_answer.text,"phone":"13933673296"]
+        
+        println(params)
+        
+        manager.responseSerializer.acceptableContentTypes = NSSet(object: "text/html") as Set<NSObject>
+        
+        manager.GET(url, parameters: params, success: {
+            (operation:AFHTTPRequestOperation!, respondsObject:AnyObject!) in
+            println("JSON: " + respondsObject.description!)
+            
+            self.loginSuccess(respondsObject as! NSDictionary!);
+            },
+            failure: {
+                (opertion:AFHTTPRequestOperation!, error: NSError!) in
+                println("Error: " + error.localizedDescription)
+        })
         
         //checkRequeriedField()
-        //换作注册新用户
+    }
+    
+    func loginSuccess(jsonResult:NSDictionary!)
+    {
         
-//        let alert = UIAlertController(title: "提示", message: nil, preferredStyle: UIAlertControllerStyle.Alert)
-//        let action = UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil)
+        //获取用户信息
+        if jsonResult["result"] as! Int == 200{
+            println("Successful!")
+            
+            let alertView = UIAlertController(title: "恭喜，恭喜", message: "您已注册成功！", preferredStyle: UIAlertControllerStyle.Alert)
+            let alertAction = UIAlertAction(title: "好的!", style: UIAlertActionStyle.Default, handler: { (curAction) -> Void in
+                self.backToRootView()
+            })
+            alertView.addAction(alertAction)
+            self.presentViewController(alertView, animated: true, completion: nil)
+        }
+        else{
+            errorMessage(self, "当前用户名已存在，请重新输入！")
+        }
+    }
+    
+    func backToRootView(){
+        self.navigationController?.popToRootViewControllerAnimated(true)
         
-//        alert.addAction(action)
-//        self.presentViewController(alert, animated: true, completion: nil)
+        // 通知传递数据
+        var dict = NSDictionary(objectsAndKeys: self.user.text, "name", self.pass.text, "pwd")
+        NSNotificationCenter.defaultCenter().postNotificationName("registerCompletion", object: nil, userInfo: dict as [NSObject : AnyObject])
     }
     
     override func didReceiveMemoryWarning() {

@@ -47,7 +47,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="Scb-1S-7Pe">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="AmJ-vZ-Kza" sceneMemberID="viewController">
+                <tabBarController storyboardIdentifier="TabBarView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="AmJ-vZ-Kza" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="c1K-J2-Amk"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -69,7 +69,7 @@
         <!--Login View Controller-->
         <scene sceneID="17T-10-UJ9">
             <objects>
-                <viewController id="cJd-W7-rqm" customClass="LoginViewController" customModule="CloudIM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginView" useStoryboardIdentifierAsRestorationIdentifier="YES" id="cJd-W7-rqm" customClass="LoginViewController" customModule="CloudIM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jee-OC-iyH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -93,7 +93,7 @@
                                 <rect key="frame" x="-10" y="260" width="340" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="yes" keyboardType="numbersAndPunctuation"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RkJ-Cu-M8y">
                                 <rect key="frame" x="20" y="526" width="45" height="30"/>
@@ -103,7 +103,7 @@
                                 </state>
                                 <connections>
                                     <action selector="loginNewUserClick:" destination="cJd-W7-rqm" eventType="touchUpInside" id="JH9-v1-MH0"/>
-                                    <segue destination="2mT-xa-lOU" kind="push" id="4l6-D9-N7Z"/>
+                                    <segue destination="2mT-xa-lOU" kind="push" id="DIt-g2-7Hg"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FCE-NM-HCJ">
@@ -117,7 +117,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="C6t-3z-PUT">
-                                <rect key="frame" x="20" y="323" width="280" height="40"/>
+                                <rect key="frame" x="20" y="420" width="280" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.32330983639999999" green="0.74185279199999998" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
@@ -127,14 +127,37 @@
                                 </state>
                                 <connections>
                                     <action selector="loginClick:" destination="cJd-W7-rqm" eventType="touchUpInside" id="tlj-5i-KyG"/>
-                                    <segue destination="AmJ-vZ-Kza" kind="modal" id="1Kf-yE-Zb8"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否自动登录" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Pvc-fC-haS">
+                                <rect key="frame" x="20" y="320" width="110" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="DHe-xT-IAl">
+                                <rect key="frame" x="150" y="320" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="是否记住密码" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="imX-Sz-Wns">
+                                <rect key="frame" x="20" y="360" width="110" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="XAb-cB-8as">
+                                <rect key="frame" x="150" y="360" width="51" height="31"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </switch>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="ENY-3O-Gi1"/>
                     <connections>
+                        <outlet property="bAutoLogin" destination="DHe-xT-IAl" id="11Y-OQ-5HA"/>
+                        <outlet property="bRememberPwd" destination="XAb-cB-8as" id="BMh-Cq-Co3"/>
                         <outlet property="loginImageList" destination="l55-iE-dVA" id="CwP-v0-EuK"/>
                         <outlet property="loginUserId" destination="uWW-CV-LQc" id="U8k-bb-xbR"/>
                         <outlet property="loginUserPwd" destination="42e-7p-tC7" id="SOy-c7-4Gu"/>

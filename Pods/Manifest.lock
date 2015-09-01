@@ -1,4 +1,25 @@
 PODS:
+  - AFNetworking (2.5.4):
+    - AFNetworking/NSURLConnection (= 2.5.4)
+    - AFNetworking/NSURLSession (= 2.5.4)
+    - AFNetworking/Reachability (= 2.5.4)
+    - AFNetworking/Security (= 2.5.4)
+    - AFNetworking/Serialization (= 2.5.4)
+    - AFNetworking/UIKit (= 2.5.4)
+  - AFNetworking/NSURLConnection (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/NSURLSession (2.5.4):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (2.5.4)
+  - AFNetworking/Security (2.5.4)
+  - AFNetworking/Serialization (2.5.4)
+  - AFNetworking/UIKit (2.5.4):
+    - AFNetworking/NSURLConnection
+    - AFNetworking/NSURLSession
   - AJWValidator (0.0.7)
   - JSAnimatedImagesView (1.0.0):
     - MSWeakTimer (~> 1.0)
@@ -12,6 +33,7 @@ PODS:
   - XHRealTimeBlur (1.7)
 
 DEPENDENCIES:
+  - AFNetworking (~> 2.5.4)
   - AJWValidator
   - JSAnimatedImagesView
   - KxMenu
@@ -19,6 +41,7 @@ DEPENDENCIES:
   - RongCloudIMKit
 
 SPEC CHECKSUMS:
+  AFNetworking: 05edc0ac4c4c8cf57bcf4b84be5b0744b6d8e71e
   AJWValidator: 6bd0642cdd08ebccf847938e822fbd07a8ccfdbc
   JSAnimatedImagesView: d5c5f561280171ce13f1f08ba9834c47a1f27bfc
   KxMenu: c025365712f55fa99feb7830fbb7dea0e912be72
