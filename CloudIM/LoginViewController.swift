@@ -24,31 +24,47 @@ import UIKit
 
 //图片动画，由远及近，放大    第三方库JSAnimatedImagesViewDataSource
 
-class LoginViewController: UIViewController, JSAnimatedImagesViewDataSource{
+class LoginViewController: UIViewController, JSAnimatedImagesViewDataSource, UINavigationControllerDelegate,  UIImagePickerControllerDelegate{
 
+    // 图片拾取器
+    var imgPicker: UIImagePickerController = UIImagePickerController()
+    
     //图片动画，由远及近，放大
     @IBOutlet weak var loginImageList: JSAnimatedImagesView!
+
+    @IBOutlet weak var loginImageButton: RoundButtonView!
+    var loginImageView: UIImageView?
     
+    @IBAction func chooseImage(sender: RoundButtonView) {
+        //chooseImageFromFile()
+        var nibNameOrNil = String?("photoChooseView")
+        let photoVC = PhotoViewController(nibName: nibNameOrNil, bundle: nil)
+        photoVC.view.frame.origin.x = 0
+        photoVC.view.frame.origin.y = 300
+        self.presentViewController(photoVC, animated: true, completion: nil)
+    }
     @IBOutlet weak var loginUserId: UITextField!
     @IBOutlet weak var loginUserPwd: UITextField!
     
     @IBOutlet weak var bAutoLogin: UISwitch!
     @IBOutlet weak var bRememberPwd: UISwitch!
     @IBAction func loginClick(sender: UIButton) {
+        var token: String = loginGetToken()
         loginCheck()
     }
     
     @IBAction func loginNewUserClick(sender: UIButton) {
-//        var regUserView : RegTableViewController = RegTableViewController()
-//        regUserView.delegate = self
-//        let NVC: UINavigationController = UINavigationController()
-//        self.presentViewController(regUserView, animated: true, completion: nil)
     }
     
     @IBAction func loginFogetPwdClick(sender: UIButton) {
-        
     }
     
+    //获取登录用户的token
+    func loginGetToken()->String{
+        return "hell"
+    }
+    
+    // 登录check
     func loginCheck() {
         let manager = AFHTTPRequestOperationManager()
         let url = "http://123.57.80.107:100"
@@ -72,6 +88,7 @@ class LoginViewController: UIViewController, JSAnimatedImagesViewDataSource{
             })
     }
     
+    // 登录成功执行
     func loginSuccess(jsonResult:NSDictionary!)
     {
         
@@ -79,8 +96,9 @@ class LoginViewController: UIViewController, JSAnimatedImagesViewDataSource{
         if jsonResult["result"] as! Int == 200{
             println("Successful!")
             
+            var tokenString: String = jsonResult.objectForKey("data") as! String
             // 保存默认用户信息
-            saveNSUserDefaults()
+            saveNSUserDefaults(tokenString)
             
             //StoryBoard切换
             let anotherView:UIViewController = self.storyboard?.instantiateViewControllerWithIdentifier("TabBarView")  as! UIViewController
@@ -120,6 +138,8 @@ class LoginViewController: UIViewController, JSAnimatedImagesViewDataSource{
         //动画数据源
         self.loginImageList.dataSource = self
         
+        //图片拾取器
+        self.imgPicker.delegate = self
         //隐藏导航
         self.navigationController?.navigationBar.hidden = true
         
@@ -154,12 +174,16 @@ class LoginViewController: UIViewController, JSAnimatedImagesViewDataSource{
     }
     
     // 保存本地登陆信息
-    func saveNSUserDefaults(){
+    func saveNSUserDefaults(tokenString: String){
         var userDefaults = NSUserDefaults()
+        userDefaults.setValue(tokenString, forKey: "userToken")
         userDefaults.setValue(self.loginUserId.text, forKey: "loginName")
         userDefaults.setValue(self.loginUserPwd.text, forKey: "loginPwd")
         userDefaults.setBool(bAutoLogin.on, forKey: "AutoLogin")
         userDefaults.setBool(bRememberPwd.on, forKey: "RememberPwd")
+        //var imageData: NSData = UIImageJPEGRepresentation(loginImageButton.imageForState(UIControlState.Normal), 1)
+        var imageData: NSData = UIImagePNGRepresentation(loginImageButton.imageForState(UIControlState.Normal))
+        userDefaults.setObject(imageData, forKey: "loginImage")
         userDefaults.synchronize()
     }
     
@@ -170,14 +194,50 @@ class LoginViewController: UIViewController, JSAnimatedImagesViewDataSource{
         self.loginUserPwd.text = userDefaults.stringForKey("loginPwd")
         self.bAutoLogin.setOn(userDefaults.boolForKey("AutoLogin"), animated: true)
         self.bRememberPwd.setOn(userDefaults.boolForKey("RememberPwd"), animated: true)
+        var imageData: NSData = userDefaults.dataForKey("loginImage")!
+        self.loginImageButton.setImage(UIImage(data: imageData), forState: UIControlState.Normal)
         
         if !bRememberPwd.on {
             self.loginUserPwd.text = ""
         }
         
         if bAutoLogin.on {
-            self.loginCheck()
+            //self.loginCheck()
         }
+    }
+    
+    
+    //从本地查找图片
+    func chooseImageFromFile(){
+        imgPicker.view.backgroundColor = UIColor.grayColor()
+        var pickSourceType: UIImagePickerControllerSourceType = UIImagePickerControllerSourceType.PhotoLibrary
+        imgPicker.sourceType = pickSourceType
+        imgPicker.allowsEditing = true
+        
+        self.presentViewController(imgPicker, animated: true) { () -> Void in
+            
+        }
+    }
+    
+    // 图片获取之后处理
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [NSObject : AnyObject]) {
+        imgPicker.dismissViewControllerAnimated(true, completion: nil)
+        var img = info[UIImagePickerControllerEditedImage] as? UIImage
+        
+        var newSize: CGSize = self.loginImageButton.frame.size
+        self.loginImageButton.setImage(scaleToSize(img!, size: newSize), forState: UIControlState.Normal)
+        
+        //self.loginImageButton.addSubview(loginImageView!)
+    }
+    
+    func scaleToSize(image: UIImage, size: CGSize)->UIImage{
+        UIGraphicsBeginImageContext(size)
+        image.drawInRect(CGRect(x: 0, y: 0, width: size.width, height: size.height))
+        
+        var newImage: UIImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return newImage
     }
     
     func animatedImagesNumberOfImages(animatedImagesView: JSAnimatedImagesView!) -> UInt {

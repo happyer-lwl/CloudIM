@@ -12,7 +12,7 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate,RCIMUserInfoDataSource {
 
     var window: UIWindow?
-
+   
     //获取用户信息
     func getUserInfoWithUserId(userId: String!, completion: ((RCUserInfo!) -> Void)!) {
         
@@ -29,6 +29,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate,RCIMUserInfoDataSource {
                 userInfo.name = "咕咕"
                 userInfo.portraitUri = "http://img4.duitang.com/uploads/item/201403/23/20140323171323_aNfWX.jpeg"
                 println("crp")
+            case "wyb":
+                userInfo.name = "王艺斌"
+                userInfo.portraitUri = "http://img4.duitang.com/uploads/item/201403/23/20140323171323_aNfWX.jpeg"
+                println("wyb")
                 break
             default:
                 println("当前没有此用户")

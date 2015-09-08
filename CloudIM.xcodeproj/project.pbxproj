@@ -16,9 +16,14 @@
 		7E1C6D3F1B85C9DB00940D0C /* ConversationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C6D3E1B85C9DB00940D0C /* ConversationViewController.swift */; };
 		7E1C6D411B860BC400940D0C /* ConversationListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */; };
 		7E6C23461B8B47D3004EA8B4 /* RegTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E6C23451B8B47D3004EA8B4 /* RegTableViewController.swift */; };
+		7E7CB39A1B9AE12700BC6E17 /* photoChooseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7E7CB3991B9AE12700BC6E17 /* photoChooseView.xib */; };
+		7E7CB39F1B9AE3B100BC6E17 /* PhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E7CB39D1B9AE3B100BC6E17 /* PhotoViewController.swift */; };
 		7E84E74A1B93F02E00D2B164 /* common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E84E7491B93F02E00D2B164 /* common.swift */; };
 		7E99AD781B8C5E920017E89E /* UIView+ViewRecursion.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E99AD771B8C5E920017E89E /* UIView+ViewRecursion.m */; };
+		7E9E66A01B96917A00689E8B /* RoundButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E669F1B96917A00689E8B /* RoundButtonView.swift */; };
+		7E9E66A21B96B8FD00689E8B /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E9E66A11B96B8FD00689E8B /* AboutViewController.swift */; };
 		7EA705A11B8AF6B800AD20D1 /* RoundImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EA705A01B8AF6B800AD20D1 /* RoundImageView.swift */; };
+		7EB8BE7B1B9DC6D70032621D /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EB8BE7A1B9DC6D70032621D /* WelcomeViewController.swift */; };
 		7ECBE9171B876182004F8607 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7ECBE9161B876182004F8607 /* LoginViewController.swift */; };
 		E6975A4BEAEF8A3B46BFEF17 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F6AFBA79483682FD35CEF02F /* libPods.a */; };
 /* End PBXBuildFile section */
@@ -49,10 +54,15 @@
 		7E1C6D3E1B85C9DB00940D0C /* ConversationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationViewController.swift; sourceTree = "<group>"; };
 		7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConversationListViewController.swift; sourceTree = "<group>"; };
 		7E6C23451B8B47D3004EA8B4 /* RegTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegTableViewController.swift; sourceTree = "<group>"; };
+		7E7CB3991B9AE12700BC6E17 /* photoChooseView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = photoChooseView.xib; sourceTree = "<group>"; };
+		7E7CB39D1B9AE3B100BC6E17 /* PhotoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhotoViewController.swift; sourceTree = "<group>"; };
 		7E84E7491B93F02E00D2B164 /* common.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = common.swift; sourceTree = "<group>"; };
 		7E99AD761B8C5E880017E89E /* UIView+ViewRecursion.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIView+ViewRecursion.h"; sourceTree = "<group>"; };
 		7E99AD771B8C5E920017E89E /* UIView+ViewRecursion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ViewRecursion.m"; sourceTree = "<group>"; };
+		7E9E669F1B96917A00689E8B /* RoundButtonView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundButtonView.swift; sourceTree = "<group>"; };
+		7E9E66A11B96B8FD00689E8B /* AboutViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		7EA705A01B8AF6B800AD20D1 /* RoundImageView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundImageView.swift; sourceTree = "<group>"; };
+		7EB8BE7A1B9DC6D70032621D /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		7ECBE9161B876182004F8607 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		F6AFBA79483682FD35CEF02F /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DBBFF0B3A4FD8C6FCD488F /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
@@ -107,8 +117,13 @@
 				7E1C6D401B860BC400940D0C /* ConversationListViewController.swift */,
 				7E1C6D3E1B85C9DB00940D0C /* ConversationViewController.swift */,
 				7ECBE9161B876182004F8607 /* LoginViewController.swift */,
+				7EB8BE7A1B9DC6D70032621D /* WelcomeViewController.swift */,
 				7E6C23451B8B47D3004EA8B4 /* RegTableViewController.swift */,
+				7E9E66A11B96B8FD00689E8B /* AboutViewController.swift */,
+				7E9E669F1B96917A00689E8B /* RoundButtonView.swift */,
 				7EA705A01B8AF6B800AD20D1 /* RoundImageView.swift */,
+				7E7CB39D1B9AE3B100BC6E17 /* PhotoViewController.swift */,
+				7E7CB3991B9AE12700BC6E17 /* photoChooseView.xib */,
 				7E1C6D1D1B849BFE00940D0C /* Main.storyboard */,
 				7E1C6D201B849BFE00940D0C /* Images.xcassets */,
 				7E1C6D221B849BFE00940D0C /* LaunchScreen.xib */,
@@ -253,6 +268,7 @@
 			files = (
 				7E1C6D1F1B849BFE00940D0C /* Main.storyboard in Resources */,
 				7E1C6D241B849BFE00940D0C /* LaunchScreen.xib in Resources */,
+				7E7CB39A1B9AE12700BC6E17 /* photoChooseView.xib in Resources */,
 				7E1C6D211B849BFE00940D0C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,11 +322,15 @@
 			files = (
 				7E1C6D1C1B849BFE00940D0C /* ViewController.swift in Sources */,
 				7E1C6D411B860BC400940D0C /* ConversationListViewController.swift in Sources */,
+				7E9E66A21B96B8FD00689E8B /* AboutViewController.swift in Sources */,
 				7E99AD781B8C5E920017E89E /* UIView+ViewRecursion.m in Sources */,
 				7E1C6D1A1B849BFE00940D0C /* AppDelegate.swift in Sources */,
+				7E7CB39F1B9AE3B100BC6E17 /* PhotoViewController.swift in Sources */,
+				7EB8BE7B1B9DC6D70032621D /* WelcomeViewController.swift in Sources */,
 				7ECBE9171B876182004F8607 /* LoginViewController.swift in Sources */,
 				7E1C6D3F1B85C9DB00940D0C /* ConversationViewController.swift in Sources */,
 				7EA705A11B8AF6B800AD20D1 /* RoundImageView.swift in Sources */,
+				7E9E66A01B96917A00689E8B /* RoundButtonView.swift in Sources */,
 				7E6C23461B8B47D3004EA8B4 /* RegTableViewController.swift in Sources */,
 				7E84E74A1B93F02E00D2B164 /* common.swift in Sources */,
 			);

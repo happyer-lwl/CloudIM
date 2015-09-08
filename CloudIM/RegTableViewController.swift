@@ -9,6 +9,9 @@
 import UIKit
 
 class RegTableViewController: UITableViewController {
+    
+    var (userOk, pwdOk, mailOk) = (false, false, false)
+    
     @IBOutlet var loginTextMustFields: [UITextField]!
     @IBOutlet var loginTextNotFields: [UITextField]!
     
@@ -20,7 +23,9 @@ class RegTableViewController: UITableViewController {
     @IBOutlet weak var pass_question: UITextField!
     @IBOutlet weak var pass_answer: UITextField!
     
-    func checkRequeriedField() {
+    func checkRequeriedField() ->Bool{
+        
+        let doneButton = self.navigationItem.rightBarButtonItem
         
         //一次性定位所有的子控件，第三方UIView+ViewRecursion
  /*       self.view.runBlockOnAllSubviews { (subview) -> Void in
@@ -34,7 +39,8 @@ class RegTableViewController: UITableViewController {
         //storyboard 建立数组，遍历
         for textField in loginTextMustFields {
             if textField.text!.isEmpty {
-                println("有空行！")
+                errorMessage(self, "必填项有空行")
+                return false
             }
         }
         
@@ -43,8 +49,68 @@ class RegTableViewController: UITableViewController {
         let predicate = NSPredicate(format: "SELF MATCHES %@", regex)
         if predicate.evaluateWithObject(mail.text){
             println("邮箱格式正确!")
+            return true
         }else {
             println("邮箱格式不正确!")
+            return false
+        }
+        
+        //textfield 左右子视图
+        //        let rightLabel = UILabel(frame: CGRectMake(20, 0, 30, 30))
+        //        rightLabel.text = "x"
+        //        user.rightView = rightLabel
+        //        user.rightViewMode = UITextFieldViewMode.WhileEditing
+        
+        //通过第三方库校验,应该在界面进入时初始化，进行检测
+        let vUser = AJWValidator(type: .String)
+        vUser.addValidationToEnsureMinimumLength(3, invalidMessage: "最少为3个字符")
+        vUser.addValidationToEnsureMaximumLength(15, invalidMessage: "最多只能有15个字符")
+        self.user.ajw_attachValidator(vUser)
+        
+        var bUserState: Bool = true
+        vUser.validatorStateChangedHandler = { (newState: AJWValidatorState) -> Void in
+            switch newState {
+            case .ValidationStateValid:
+                println("有效!")
+                self.userOk = true
+            default:
+                println("无效!")
+                self.userOk = false
+                errorMessage(self, vUser.errorMessages.first as! String)
+            }
+            
+            doneButton?.enabled = self.userOk && self.pwdOk  && self.mailOk
+        }
+        
+        let vPwd = AJWValidator(type: .String)
+        vPwd.addValidationToEnsureMinimumLength(6, invalidMessage: "最少为6个字符")
+        vPwd.addValidationToEnsureMaximumLength(15, invalidMessage: "最多只能有15个字符")
+        self.user.ajw_attachValidator(vPwd)
+        
+        vPwd.validatorStateChangedHandler = { (newState: AJWValidatorState) -> Void in
+            switch newState {
+            case .ValidationStateValid:
+                println("有效!")
+                self.pwdOk = true
+            default:
+                println("无效!")
+                self.pwdOk = false
+            }
+            doneButton?.enabled = self.userOk && self.pwdOk  && self.mailOk
+        }
+        
+        let vMail = AJWValidator(type: .String)
+        vMail.addValidationToEnsureValidEmailWithInvalidMessage("邮箱格式不正确")
+        self.mail.ajw_attachValidator(vMail)
+        
+        vMail.validatorStateChangedHandler = { (newState: AJWValidatorState) -> Void in
+            switch newState {
+            case .ValidationStateValid:
+                self.mailOk = true
+            default:
+                self.mailOk = false
+            }
+            doneButton?.enabled = self.userOk && self.pwdOk && self.mailOk
         }
     }
     
@@ -61,27 +127,9 @@ class RegTableViewController: UITableViewController {
         
         self.navigationController?.navigationBar.hidden = false
         self.navigationController?.navigationItem.title = "新用户注册"
+        self.navigationController?.navigationItem.rightBarButtonItem?.enabled = false
         
-        //textfield 左右子视图
-//        let rightLabel = UILabel(frame: CGRectMake(20, 0, 30, 30))
-//        rightLabel.text = "x"
-//        user.rightView = rightLabel
-//        user.rightViewMode = UITextFieldViewMode.WhileEditing
-        
-        //通过第三方库校验
-        let vUser = AJWValidator(type: .String)
-        vUser.addValidationToEnsureMinimumLength(3, invalidMessage: "最少为3个字符")
-        vUser.addValidationToEnsureMaximumLength(15, invalidMessage: "最多只能有15个字符")
-        self.user.ajw_attachValidator(vUser)
-        
-        vUser.validatorStateChangedHandler = { (newState: AJWValidatorState) -> Void in
-            switch newState {
-            case .ValidationStateValid:
-                println("有效!")
-            default:
-                println("无效!")
-            }
-        }
+        //checkRequeriedField()
     }
 
     func doneButtonTap(){
@@ -104,8 +152,6 @@ class RegTableViewController: UITableViewController {
                 (opertion:AFHTTPRequestOperation!, error: NSError!) in
                 println("Error: " + error.localizedDescription)
         })
-        
-        //checkRequeriedField()
     }
     
     func loginSuccess(jsonResult:NSDictionary!)

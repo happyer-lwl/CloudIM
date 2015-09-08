@@ -79,10 +79,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
-                            <imageView userInteractionEnabled="NO" alpha="0.74999999999999978" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="public_share3" id="ZXj-4J-jl5">
-                                <rect key="frame" x="110" y="64" width="100" height="100"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" alpha="0.75" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="用户名" textAlignment="center" minimumFontSize="17" id="uWW-CV-LQc">
                                 <rect key="frame" x="-10" y="220" width="340" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -95,6 +91,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" keyboardType="numbersAndPunctuation" returnKeyType="done" secureTextEntry="YES"/>
                             </textField>
+                            <button opaque="NO" alpha="0.74999999999999978" contentMode="scaleToFill" contentHorizontalAlignment="fill" contentVerticalAlignment="fill" lineBreakMode="middleTruncation" id="yS9-4S-BTJ" customClass="RoundButtonView" customModule="CloudIM" customModuleProvider="target">
+                                <rect key="frame" x="110" y="94" width="100" height="100"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="2" minY="0.0" maxX="-2" maxY="0.0"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="18"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="50"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                        <real key="value" value="0.0"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="borderColor">
+                                        <color key="value" red="0.23822316039999999" green="0.6709180307" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="chooseImage:" destination="cJd-W7-rqm" eventType="touchUpInside" id="Pe2-eu-cTI"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="RkJ-Cu-M8y">
                                 <rect key="frame" x="20" y="526" width="45" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -133,7 +149,7 @@
                                 <rect key="frame" x="20" y="320" width="110" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="DHe-xT-IAl">
@@ -144,7 +160,7 @@
                                 <rect key="frame" x="20" y="360" width="110" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" id="XAb-cB-8as">
@@ -158,6 +174,7 @@
                     <connections>
                         <outlet property="bAutoLogin" destination="DHe-xT-IAl" id="11Y-OQ-5HA"/>
                         <outlet property="bRememberPwd" destination="XAb-cB-8as" id="BMh-Cq-Co3"/>
+                        <outlet property="loginImageButton" destination="yS9-4S-BTJ" id="g8i-5d-Kf8"/>
                         <outlet property="loginImageList" destination="l55-iE-dVA" id="CwP-v0-EuK"/>
                         <outlet property="loginUserId" destination="uWW-CV-LQc" id="U8k-bb-xbR"/>
                         <outlet property="loginUserPwd" destination="42e-7p-tC7" id="SOy-c7-4Gu"/>
@@ -180,7 +197,7 @@
                             <tableViewSection headerTitle="必填" id="LMP-Gh-5VB">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="oJa-7n-EpV">
-                                        <rect key="frame" x="0.0" y="86" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="oJa-7n-EpV" id="dxc-tM-G9B">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -196,7 +213,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="iDC-eM-nhW">
-                                        <rect key="frame" x="0.0" y="130" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="66" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="iDC-eM-nhW" id="vbo-Cc-Jor">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -212,7 +229,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="mUj-GY-2ny">
-                                        <rect key="frame" x="0.0" y="174" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="110" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mUj-GY-2ny" id="u9Y-ol-lwJ">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -232,7 +249,7 @@
                             <tableViewSection headerTitle="选填" id="UlH-1C-hOA">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="V9s-Gs-b0w">
-                                        <rect key="frame" x="0.0" y="240" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="176" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="V9s-Gs-b0w" id="4gv-I8-V30">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -248,7 +265,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="vHY-xX-vid">
-                                        <rect key="frame" x="0.0" y="284" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="220" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="vHY-xX-vid" id="fyT-3p-o6x">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -264,7 +281,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="8SP-4r-Xc1">
-                                        <rect key="frame" x="0.0" y="328" width="320" height="44"/>
+                                        <rect key="frame" x="0.0" y="264" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8SP-4r-Xc1" id="0pB-au-dsa">
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
@@ -289,7 +306,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="新用户注册" id="gzT-yX-Y2u">
                         <barButtonItem key="backBarButtonItem" title="返回" id="1ow-ar-S56"/>
-                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="Nvd-m0-IMg"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" systemItem="done" id="Nvd-m0-IMg"/>
                     </navigationItem>
                     <connections>
                         <outlet property="address" destination="7au-2d-f2C" id="4EB-6z-Lyn"/>
@@ -406,10 +423,33 @@
         <!--关于-->
         <scene sceneID="bEz-4W-0RR">
             <objects>
-                <viewController id="oM1-c4-QzF" sceneMemberID="viewController">
+                <viewController id="oM1-c4-QzF" customClass="AboutViewController" customModule="CloudIM" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="xDH-RQ-Aha">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7S3-KC-end">
+                                <rect key="frame" x="10" y="451" width="300" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.93994633839999997" green="0.3986985931" blue="0.30828901450000001" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <state key="normal" title="退出当前帐号">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backToMain:" destination="oM1-c4-QzF" eventType="touchUpInside" id="0tz-XY-Qqm"/>
+                                </connections>
+                            </button>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="307" id="DjF-2B-xeS">
+                                <rect key="frame" x="0.0" y="70" width="320" height="307"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DjF-2B-xeS" id="EPl-Dw-mbK">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="306.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="关于" id="3Nt-Sh-iCy"/>
@@ -437,10 +477,24 @@
             </objects>
             <point key="canvasLocation" x="2999" y="2246"/>
         </scene>
+        <!--Welcome View Controller-->
+        <scene sceneID="zvP-fo-9Mp">
+            <objects>
+                <viewController id="1JZ-xW-Z69" customClass="WelcomeViewController" customModule="CloudIM" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zs8-JP-sMF">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S5D-Us-y53" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1513" y="957"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="JAQ-uW-fki">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vYa-CP-I2w" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="loginNavigationView" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vYa-CP-I2w" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="Ovn-eS-iC6">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -464,7 +518,6 @@
         <image name="about" width="22" height="22"/>
         <image name="contact" width="31" height="21"/>
         <image name="coversation" width="29" height="22"/>
-        <image name="public_share3" width="71" height="71"/>
         <image name="serve" width="23" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
